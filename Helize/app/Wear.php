@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Wear extends Model{
 
 //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['gender','color','brand','category','type'];
+    protected $fillable = ['gender','color','category','type'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -43,4 +43,11 @@ class Wear extends Model{
     public function setType($type){
         $this->attributes['type'] = $type;
     }
+    public function Wear(){
+        $this->hasOne(Brand::class);
+    }
 }
+
+/*
+ * Return this->hasOne(Brand::class)
+ * */

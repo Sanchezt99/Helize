@@ -13,17 +13,10 @@ class CreateWearTable extends Migration
      */
 
     public function up(){
-        Schema::create('Wear', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('gender');
-            $table->text('color');
-            $table->text('brand');
-            $table->text('category');
-            $table->text('type');
-            $table->foreignId("idBrand")->constrained();
-            $table->foreignId("id")->constrained();
+        Schema::create('Brand', function (Blueprint $table) {
+            $table->bigIncrements('idBrand');
+            $table->text('name');
             $table->timestamps();
-
             /*
              * Relation foring key and primary key
              * */
@@ -38,6 +31,6 @@ class CreateWearTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Wear');
+        Schema::dropIfExists('Brand');
     }
 }
