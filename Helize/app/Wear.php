@@ -30,13 +30,6 @@ class Wear extends Model{
         $this->attributes['gender'] = $color;
     }
 
-    public function getBrand(){
-        return $this->attributes['brand'];
-    }
-    public function setBrand($brand){
-        $this->attributes['brand'] = $brand;
-    }
-
     public function getCategory(){
         return $this->attributes['category'];
     }

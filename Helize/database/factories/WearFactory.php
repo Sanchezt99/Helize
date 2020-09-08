@@ -6,9 +6,9 @@ use Illuminate\Support\Str;
 
 $factory->define(Wear::class, function (Faker $faker) {
     return [
-        'gender' => $faker->company,
+        'idWear' => $faker->unique()->randomDigit,
+        'gender' => $faker->randomElement($array=["F","M"]),
         'color' => $faker->randomElement($array=["Red","Blue","Yellow","Black","Orange","Gray","Green","White"]),
-        'brand' => $faker->company,
         'category' => $faker->company,
         'type' => $faker->randomElement($array=["M","F","X"]),
     ];
