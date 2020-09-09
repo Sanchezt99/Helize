@@ -11,6 +11,7 @@ $factory->define(Wear::class, function (Faker $faker) {
         'color' => $faker->randomElement($array=["Red","Blue","Yellow","Black","Orange","Gray","Green","White"]),
         'category' => $faker->company,
         'type' => $faker->randomElement($array=["M","F","X"]),
+        'brand' => $faker->randomElement($array=["Gef","Punto Blanco","Tennis","Forever 21","Lili pink"]),
 
     ];
 });

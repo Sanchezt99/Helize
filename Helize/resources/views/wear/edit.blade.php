@@ -15,11 +15,9 @@
         </div>
         <br />
         @endif
-        <form method="post" action="{{ route('wear.update', $wear->getId()) }}">
-            @method('PATCH')
+        <form method="POST" action="{{ route('wear.update', ['id' => $wear->getId()]) }}">
             @csrf
             <div class="form-group">
-
                 <label for="gender">gender:</label>
                 <input type="text" class="form-control" name="gender" value={{ $wear->getGender() }} />
             </div>
@@ -37,8 +35,18 @@
                 <label for="type">type:</label>
                 <input type="text" class="form-control" name="type" value={{ $wear->getType() }} />
             </div>
+            <div class="form-group">
+                <label for="brand">brand:</label>
+                <input type="text" class="form-control" name="brand" value={{ $wear->getBrand() }} />
+            </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
+        <ul></ul>
+        <div>
+            <form method="get" action="{{ route('wear.index') }}">
+                <button type="submit" class="btn btn-dark ">Back</button>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

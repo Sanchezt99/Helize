@@ -2,12 +2,13 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Wear extends Model{
 
 //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['gender','color','category','type'];
+    protected $fillable = ['gender','color','category','type','brand'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -44,12 +45,21 @@ class Wear extends Model{
         $this->attributes['type'] = $type;
     }
 
-    /*
-     * Return this->hasOne(Brand::class)
-     * */
+    public function getBrand(){
+        return $this->attributes['brand'];
+    }
+    public function setBrand($brand){
+        $this->attributes['brand'] = $brand;
+    }
 
-    public function Wear(){
-        $this->hasOne(Brand::class);
+    public static function validate(Request $request){
+        $request->validate([
+            'gender'=>'required',
+            'color'=>'required',
+            'category'=>'required',
+            'type'=>'required',
+            'brand'=>'required'
+        ]);
     }
 }
 

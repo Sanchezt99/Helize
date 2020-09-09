@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Add a wear</h1>
+        <h1 class="display-3">Add a new wear</h1>
         <div>
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -17,25 +17,34 @@
             <form method="post" action="{{ route('wear.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="first_name">gender:</label>
+                    <label for="gender">gender:</label>
                     <input type="text" class="form-control" name="gender"/>
                 </div>
-
                 <div class="form-group">
-                    <label for="last_name">color:</label>
+                    <label for="color">color:</label>
                     <input type="text" class="form-control" name="color"/>
                 </div>
-
                 <div class="form-group">
-                    <label for="email">category:</label>
+                    <label for="category">category:</label>
                     <input type="text" class="form-control" name="category"/>
                 </div>
                 <div class="form-group">
-                    <label for="city">type:</label>
+                    <label for="type">type:</label>
                     <input type="text" class="form-control" name="type"/>
                 </div>
-                <button type="submit" class="btn btn-primary-outline">Add wear</button>
+                <div class="form-group">
+                    <label for="brand">brand:</label>
+                    <input type="text" class="form-control" name="brand"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Add wear</button>
             </form>
+            <ul></ul>
+            <div>
+                <form method="get" action="{{ route('wear.index') }}">
+                    <button type="submit" class="btn btn-dark ">Back</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
