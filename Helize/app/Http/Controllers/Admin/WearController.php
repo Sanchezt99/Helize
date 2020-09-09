@@ -6,37 +6,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Wear;
 
+
+
 class WearController extends Controller
 {
 
     public function showWithID($id)
     {
         $data = []; //to be sent to the view
-        $product = Product::findOrFail($id);
-        $data["product"] = $product;
+        $wear = Wear::findOrFail($id);
+        $data["wear"] = $wear;
         return view('showWithID.showWithID')->with("data", $data);
     }
 
-    public function delete($id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
-        return redirect()->route('showProduct.show')->with('success', 'Product deleted successfully');
-    }
+
 
     public function show()
     {
         $data = []; //to be sent to the view
-        $product = Product::all();
-        $data["products"] = $product;
+        $wear = Wear::all();
+        $data["wears"] = $wear;
         return view('showProduct.show')->with("data", $data);
     }
 
     public function create()
     {
         $data = []; //to be sent to the view
-        $data["title"] = "Create product";
-        return view('product.create')->with("data", $data);
+        $data["title"] = "Create wear";
+        return view('wear.create')->with("data", $data);
     }
 
     public function save(Request $request)
@@ -44,14 +41,21 @@ class WearController extends Controller
         $request->validate([
             "gender" => "required",
             "color" => "required",
-            "brand" => "required",
+            //"brand" => "required",
             "category" => "required",
             "type" => "required"
         ]);
-
+        //Do I Save brand?
         Product::create($request->only(["gender", "color", "brand", "category", "type"]));
         return back()->with('success', 'Item created successfully!');
         //here goes the code to call the model and save it to the database
+    }
+
+    public function delete($id)
+    {
+        $wear = Wear::findOrFail($id);
+        $wear->delete();
+        return redirect()->route('showProduct.show')->with('success', 'Product deleted successfully');
     }
 }
 

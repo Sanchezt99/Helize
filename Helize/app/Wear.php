@@ -43,11 +43,13 @@ class Wear extends Model{
     public function setType($type){
         $this->attributes['type'] = $type;
     }
+
+    /*
+     * Return this->hasOne(Brand::class)
+     * */
+
     public function Wear(){
         $this->hasOne(Brand::class);
     }
 }
 
-/*
- * Return this->hasOne(Brand::class)
- * */
