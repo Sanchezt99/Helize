@@ -17,4 +17,5 @@ use App\Wear;
 Route::get('/', function () {return view('welcome');});
 
 Route::get('/index', 'HomeController@index')->name("home.index");
-Route::get('/wear/create', 'Admin\WearController@create')->name("wear.create");
+Route::get('/index/wear/create', 'WearController@create')->name("wear.create");
+

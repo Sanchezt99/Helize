@@ -1,39 +1,42 @@
 @extends('layouts.master')
-@section('content')
-@include('util.message')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Create wear</div>
-                <div class="card-body">
-                    @if($errors->any())
-                    <ul id="errors">
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-                    <form method="POST" action="{{ route('wear.save') }}">
-                        @csrf
-                        <p></p>
-                        <input type="text" placeholder="Enter gender" name="gender" value="{{ old('gender') }}" />
-                        <p></p>
-                        <input type="text" placeholder="Enter color" name="color" value="{{ old('color') }}" />
-                        <p></p>
-                        <input type="text" placeholder="Enter category" name="category" value="{{ old('category') }}" />
-                        <p></p>
-                        <input type="text" placeholder="Enter type" name="type" value="{{ old('type') }}" />
-                        <p></p>
-                        <input type="submit" value="Send" />
-                        <p></p>
-                    </form>
-                    <input type="submit" onclick="location='/index'" value="Return" />
+@section('content')
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h1 class="display-3">Add a wear</h1>
+        <div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br />
+            @endif
+            <form method="post" action="{{ route('wear.store') }}">
+                @csrf
+                <div class="form-group">
+                    <label for="first_name">gender:</label>
+                    <input type="text" class="form-control" name="gender"/>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="last_name">color:</label>
+                    <input type="text" class="form-control" name="color"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">category:</label>
+                    <input type="text" class="form-control" name="category"/>
+                </div>
+                <div class="form-group">
+                    <label for="city">type:</label>
+                    <input type="text" class="form-control" name="type"/>
+                </div>
+                <button type="submit" class="btn btn-primary-outline">Add wear</button>
+            </form>
         </div>
     </div>
 </div>
 @endsection
-

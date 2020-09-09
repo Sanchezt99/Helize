@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWearTable extends Migration
+class CreateBrandTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateWearTable extends Migration
      */
 
     public function up(){
-        Schema::create('Brand', function (Blueprint $table) {
+        Schema::create('wear', function (Blueprint $table) {
             $table->bigIncrements('idBrand');
-            $table->text('name');
             $table->timestamps();
-            /*
-             * Relation foring key and primary key
-             * */
         });
     }
 
@@ -31,6 +27,7 @@ class CreateWearTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('Brand');
+        Schema::dropIfExists('products');
     }
 }
+
