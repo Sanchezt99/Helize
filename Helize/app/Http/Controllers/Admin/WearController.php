@@ -8,6 +8,7 @@ use App\Wear;
 
 
 class WearController extends Controller{
+
     public function index(){
         $wear = Wear::all();
 
