@@ -1,9 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
 
-<div class="row">
-    <div class="col-sm-12">
-        <h1 class="display-3">Wears</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="display-3">Wears</h1>
             <div class="container">
                 <table class="table table-striped">
 
@@ -15,7 +16,7 @@
                             <td>category</td>
                             <td>type</td>
                             <td>brand</td>
-                            <td colspan = 2>Actions</td>
+                            <td colspan=2>Actions</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,15 +39,16 @@
                                 </form>
                             </td>
                         </tr>
-                    </div>
-                </div>
-                @endforeach
-                </tbody>
-            </table>
+            </div>
+        </div>
+        @endforeach
+        </tbody>
+        </table>
     </div>
     <div class="col-sm-6">
         <form method="get" action="{{ route('wear.create') }}">
             <button type="submit" class="btn btn-dark ">Create</button>
         </form>
     </div>
+</div>
 @endsection
