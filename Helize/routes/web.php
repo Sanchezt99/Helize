@@ -14,6 +14,7 @@ use App\Wear;
 |
 */
 
+
 Route::get('/', function () {return view('welcome');});
 Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/wear', 'Admin\WearController@index')->name("wear.index");
@@ -24,4 +25,13 @@ Route::post('/wear/{id}/update', 'Admin\WearController@update')->name("wear.upda
 Route::delete('wear/{id}', 'Admin\WearController@destroy')->name("wear.destroy");
 
 
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
