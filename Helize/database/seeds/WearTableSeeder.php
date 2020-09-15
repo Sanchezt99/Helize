@@ -13,7 +13,7 @@ class WearTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Wear::class)->create();
+        factory(Wear::class,10)->create();
     }
 }
 

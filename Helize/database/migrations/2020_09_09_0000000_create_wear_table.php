@@ -15,11 +15,12 @@ class CreateWearTable extends Migration
     public function up(){
         Schema::create('wears', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('gender');
+            $table->char('gender')->max(1);
             $table->text('color');
             $table->text('brand');
             $table->text('category');
             $table->text('type');
+            $table->integer('price');
 
             $table->timestamps();
         });

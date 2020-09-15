@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
+use App\Order;
 
 class User extends Authenticatable
 {
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name', 'username', 'email', 'password', 'role'
     ];
 
     /**
@@ -37,6 +37,47 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId()
+    {
+        return $this->attributes['id'];
+    }
+    public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getUsername()
+    {
+        return $this->attributes['username'];
+    }
+    public function setUsername($username)
+    {
+        $this->attributes['username'] = $username;
+    }
+
+    public function getEmail()
+    {
+        return $this->attributes['email'];
+    }
+    public function setEmail($email)
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getRole()
+    {
+        return $this->attributes['role'];
+    }
+    public function setRole($role)
+    {
+        $this->attributes['role'] = $role;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
     public static function validate(array $data)
     {

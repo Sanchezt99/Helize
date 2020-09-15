@@ -2,17 +2,15 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Wear;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 
 $factory->define(Wear::class, function (Faker $faker) {
     return [
-        'idWear' => $faker->unique()->randomDigit,
-        'gender' => $faker->randomElement($array=["F","M"]),
-        'color' => $faker->randomElement($array=["Red","Blue","Yellow","Black","Orange","Gray","Green","White"]),
+        'gender' => $faker->randomElement(["F","M","X"]),
+        'color' => $faker->randomElement(["Red","Blue","Yellow","Black","Orange","Gray","Green","White"]),
         'category' => $faker->company,
-        'type' => $faker->randomElement($array=["M","F","X"]),
-        'brand' => $faker->randomElement($array=["Gef","Punto Blanco","Tennis","Forever 21","Lili pink"]),
-
+        'type' => $faker->randomElement(["Shoes","Jean","Shirt"]),
+        'brand' => $faker->randomElement(["Nike","Adidas","Tennis","Forever 21","Lili pink"]),
+        'price' => $faker->numberBetween($min = 1000, $max = 99999),
     ];
 });
 

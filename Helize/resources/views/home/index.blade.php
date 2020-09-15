@@ -1,21 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" xmlns="http://www.w3.org/1999/html">
+<div class="container">
+
+    @isset($wears)
+
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    U commerce
-                </div>
+        <div class="col-md-12 text-center">
+            @foreach ($wears as $wear)
+
+
+            <div class="card col-3 d-inline-flex ml-4 mr-4 mb-4 p-0 text-left">
+                <div class="card-header">{{ $wear->getBrand() }}</div>
+
                 <div class="card-body">
-                    <button type="button" onclick="location='/wear/create'" value="Crear cuenta" >crear cuenta</button>
-                    <button type="button" onclick="location='/showProduct/show'" value="Ingresar como admin">Ingresar como admin</button
+
+                    <ul>
+                        <li>Color: <strong>{{ $wear->getColor() }}</strong></li>
+                        <li>Gender: <strong>{{ $wear->getGender() }}</strong></li>
+                        <li>Wear: <strong>{{ $wear->getType() }}</strong></li>
+                    </ul>
+                    <a href={{ route('wear.show', ['id' => $wear->getId()]) }} class="stretched-link"></a>
+
+
 
                 </div>
             </div>
-        </div
+            @endforeach
+        </div>
+    </div>
+    @endisset
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <a href={{ route('wear.index') }} class="btn btn-success">Show all products</a>
+        </div>
     </div>
 </div>
 @endsection
-

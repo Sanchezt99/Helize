@@ -10,6 +10,10 @@ class Item extends Model
 {
     //attributes id, Wear_id, order_id, quantity created_at, updated_at
 
+    protected $fillable = [
+        'quantity',
+    ];
+
     public function getId()
     {
         return $this->attributes['id'];

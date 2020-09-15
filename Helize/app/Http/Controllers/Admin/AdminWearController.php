@@ -6,19 +6,32 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Wear;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class WearController extends Controller{
+class AdminWearController extends Controller{
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getRole()=="user"){
+                return redirect()->route('home.index');
+            }
+    
+            return $next($request);
+        });
+    }
 
     public function index(){
         $wears = Wear::all();
 
-        return view('wear.index')->with("wears", $wears);
+        return view('admin.wear.index')->with("wears", $wears);
     }
 
     public function create(){
         $data = []; //to be sent to the view
         $data["title"] = "Create wear";
-        return view('wear.create')->with("data",$data);
+        return view('admin.wear.create')->with("data",$data);
     }
 
     public function store(Request $request){
@@ -29,7 +42,7 @@ class WearController extends Controller{
 
     public function edit($id){
         $wear = Wear::find($id);
-        return view('wear.edit')->with("wear", $wear);
+        return view('admin.wear.edit')->with("wear", $wear);
     }
 
     public function update(Request $request, $id){
@@ -44,13 +57,13 @@ class WearController extends Controller{
         $wear->save();
 
 
-        return redirect('/wear')->with('success', 'Contact updated!');
+        return redirect(route('wear.index'))->with('success', 'Contact updated!');
     }
 
     public function destroy($id){
         $wear = Wear::find($id);
         $wear->delete();
-        return redirect('/wear')->with('success', 'Contact deleted!');
+        return redirect(route('wear.index'))->with('success', 'Contact deleted!');
     }
 }
 

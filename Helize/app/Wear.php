@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Wear extends Model{
 
 //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['gender','color','category','type','brand'];
+    protected $fillable = ['gender','color','category','type','brand', 'price'];
 
     public function getId(){
         return $this->attributes['id'];
@@ -50,6 +50,13 @@ class Wear extends Model{
     }
     public function setBrand($brand){
         $this->attributes['brand'] = $brand;
+    }
+
+    public function getPrice(){
+        return $this->attributes['price'];
+    }
+    public function setPrice($brand){
+        $this->attributes['price'] = $brand;
     }
 
     public static function validate(Request $request){

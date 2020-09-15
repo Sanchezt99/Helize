@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Wear;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +15,23 @@ use App\Wear;
 */
 
 
-Route::get('/wear', 'Admin\WearController@index')->name("wear.index");
-Route::get('/wear/create', 'Admin\WearController@create')->name("wear.create");
-Route::get('/wear/{id}/edit', 'Admin\WearController@edit')->name("wear.edit");
-Route::post('/wear/store', 'Admin\WearController@store')->name("wear.store");
-Route::post('/wear/{id}/update', 'Admin\WearController@update')->name("wear.update");
-Route::delete('wear/{id}', 'Admin\WearController@destroy')->name("wear.destroy");
+Route::middleware('auth')->namespace('Admin')->name('wear.')->group(function ()
+{
+    Route::get('/wears/create', 'AdminWearController@create')->name("create");
+    Route::get('/wears/{id}/edit', 'AdminWearController@edit')->name("edit");
+    Route::post('/wears/store', 'AdminWearController@store')->name("store");
+    Route::post('/wears/{id}/update', 'AdminWearController@update')->name("update");
+    Route::delete('/wears/{id}', 'AdminWearController@destroy')->name("destroy");
+});
+
+Route::get('/wears', 'Wear\WearController@index')->name("wear.index");
+Route::get('/wears/{id}', 'Wear\WearController@show')->name('wear.show');
+
+
+
+Route::post('/cart/add/{id}', 'OrderController@addToCart')->name('cart.add');
+Route::get('/cart', 'OrderController@cart')->name('cart.index');
+Route::post('/cart/remove/{id}', 'OrderController@removeOneCart')->name('cart.removeOne');
 
 Auth::routes();
 

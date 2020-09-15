@@ -8,7 +8,6 @@ use App\User;
 
 class Order extends Model
 {
-    //attributes id, total, created_at, updated_at
     protected $fillable = ['total'];
 
     public function getId()
@@ -31,11 +30,21 @@ class Order extends Model
         $this->attributes['total'] = $total;
     }
 
+    public function getUserId()
+    {
+        return $this->attributes['userId'];
+    }
+
+    public function setUserId($userId)
+    {
+        $this->attributes['userId'] = $userId;
+    }
+
     public function items(){
         return $this->hasMany(Item::class);
     }
     
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

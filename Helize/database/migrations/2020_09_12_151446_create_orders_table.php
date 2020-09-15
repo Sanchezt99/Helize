@@ -18,8 +18,8 @@ class CreateOrdersTable extends Migration
             $table->integer('total');
             $table->timestamps();
             $table->string('status');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('userId')->unsigned();
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order');
+        Schema::dropIfExists('orders');
     }
 }
