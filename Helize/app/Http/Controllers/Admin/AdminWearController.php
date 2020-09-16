@@ -35,7 +35,7 @@ class AdminWearController extends Controller{
 
     public function store(Request $request){
         Wear::validate($request);
-        Wear::create($request->only(["gender","color","category","type","brand"]));
+        Wear::create($request->only(["gender","color","category","type","brand","price"]));
         return back()->with('success','Item created successfully!');
     }
 

@@ -29,6 +29,10 @@
                         <label for="brand">brand:</label>
                         <input type="text" class="form-control" name="brand" />
                     </div>
+                    <div class="form-group">
+                        <label for="price">price:</label>
+                        <input type="number" class="form-control" name="price" min="1000" max="99999"/>
+                    </div>
 
                     <label for="type" class="form-group">Item type</label>
                     <div id="type" class="form-group">
