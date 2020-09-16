@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Order;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 
-class AdminOrderController extends Controller
+class AdminUserController extends Controller
 {
 
     public function __construct()
@@ -23,7 +23,7 @@ class AdminOrderController extends Controller
 
     public function index()
     {
-        $data["orders"] = Order::all();
-        return view('admin.order.index')->with(["data" => $data]);
+        $data["users"] = User::all();
+        return view('admin.user.index')->with("data",$data);
     }
 }

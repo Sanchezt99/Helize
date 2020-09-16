@@ -11,12 +11,12 @@
                     <thead>
                         <tr>
                             <td>Id</td>
-                            <td>gender</td>
+                            <td>genero</td>
                             <td>color</td>
-                            <td>category</td>
-                            <td>type</td>
-                            <td>brand</td>
-                            <td colspan=2>Actions</td>
+                            <td>categoria</td>
+                            <td>tipo</td>
+                            <td>marca</td>
+                            <td colspan=2>acciones</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,13 +29,13 @@
                             <td>{{$wear->getType()}}</td>
                             <td>{{$wear->getBrand()}}</td>
                             <td>
-                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary">Editar</a>
                             </td>
                             <td>
                                 <form action="{{ route('wear.destroy', $wear->getId())}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                    <button class="btn btn-danger" type="submit">Borrar</button>
                                 </form>
                             </td>
                         </tr>
@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm-6">
         <form method="get" action="{{ route('wear.create') }}">
-            <button type="submit" class="btn btn-dark ">Create</button>
+            <button type="submit" class="btn btn-dark ">Nuevo producto</button>
         </form>
     </div>
 </div>

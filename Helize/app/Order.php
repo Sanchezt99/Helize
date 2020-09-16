@@ -8,7 +8,7 @@ use App\User;
 
 class Order extends Model
 {
-    protected $fillable = ['total'];
+    protected $fillable = ['total', 'status'];
 
     public function getId()
     {
@@ -38,6 +38,16 @@ class Order extends Model
     public function setUserId($userId)
     {
         $this->attributes['userId'] = $userId;
+    }
+    
+    public function getStatus()
+    {
+        return $this->attributes['status'];
+    }
+
+    public function setstatus($status)
+    {
+        $this->attributes['status'] = $status;
     }
 
     public function items(){

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Wear;
-
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->getRole() == "Admin") {
+            return redirect(route('admin.home'));
+        }
         $wears = Wear::orderBy('created_at', 'ASC')->take(6)->get();
 
         return view('home.index')->with('wears', $wears);

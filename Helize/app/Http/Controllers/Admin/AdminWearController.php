@@ -12,7 +12,6 @@ class AdminWearController extends Controller{
 
     public function __construct()
     {
-        $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             if(Auth::user()->getRole()=="user"){
                 return redirect()->route('home.index');
@@ -57,13 +56,13 @@ class AdminWearController extends Controller{
         $wear->save();
 
 
-        return redirect(route('wear.index'))->with('success', 'Contact updated!');
+        return back();
     }
 
     public function destroy($id){
         $wear = Wear::find($id);
         $wear->delete();
-        return redirect(route('wear.index'))->with('success', 'Contact deleted!');
+        return back();
     }
 }
 

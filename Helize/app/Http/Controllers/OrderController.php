@@ -73,7 +73,8 @@ class OrderController extends Controller
     {
         $order = new Order();
         $order->setTotal(0);
-        $order->setUserId(Auth::id());
+        $order->setUserId(Auth::user()->getId());
+        $order->setStatus('Enviado');
         $order->save();
 
         $totalPrice = 0;
@@ -84,7 +85,7 @@ class OrderController extends Controller
             for($i=0;$i<count($keys);$i++){
                 $item = new Item();
                 $item->setWearId($keys[$i]);
-                $item->setWearId($order->getId());
+                $item->setOrderId($order->getId());
                 $item->setQuantity($wears[$keys[$i]]);
                 $item->save();
                 $wearActual = Wear::find($keys[$i]);
@@ -97,6 +98,6 @@ class OrderController extends Controller
             $request->session()->forget('wears');
         }
 
-        return redirect()->route('wear.index');
+        return redirect()->route('home');
     }
 }

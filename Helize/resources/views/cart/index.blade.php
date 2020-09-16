@@ -35,6 +35,12 @@
                         <tr>
                             <td colspan="2">Total:</td>
                             <td colspan="2"><strong>{{ $data['total'] }}$</strong></td>
+                            <td colspan="2">
+                                <form action={{ route('cart.buy') }} method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Comprar</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
