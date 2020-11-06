@@ -24,6 +24,10 @@ Route::post('/wear/store', 'Admin\WearController@store')->name("wear.store");
 Route::post('/wear/{id}/update', 'Admin\WearController@update')->name("wear.update");
 Route::delete('wear/{id}', 'Admin\WearController@destroy')->name("wear.destroy");
 
+//language routes
+//Route::get('/lang/{locale}','HomeController@changeLang')->name("home.lang");
+Route::get('lang/{lang}', 'LanguageController@swap')->name('lang.swap');
+
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -19,6 +20,10 @@ class Kernel extends HttpKernel
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+
+        \App\Http\Middleware\SetLocale::class,
+        \App\Http\Middleware\LocaleMiddleware::class,
+
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];

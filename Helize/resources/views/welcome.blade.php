@@ -64,7 +64,10 @@
         </style>
     </head>
     <body>
+    <div>
+    </div>
         <div class="flex-center position-ref full-height">
+            <!--Comprobamos si el status esta a true y existe más de un lenguaje-->
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -76,6 +79,7 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
+
                 </div>
             @endif
 
