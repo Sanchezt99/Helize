@@ -27,13 +27,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-        //echo__('messages.welcome');
+        //echo__('messages.register');
     }
-    /**
+
     public function changeLang($locale){
         Session::put('applocale', $locale);
         return redirect()->route('home.index');
     }
-    */
 }
 

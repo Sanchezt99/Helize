@@ -1,7 +1,5 @@
 <?php
-
+//Son etiquetas que definimos
 return [
-    'Ingresar' => 'Login',
-    'Registrarse' => 'Register',
-    'Username' => 'Usuario',
+    'register' => 'Register',
 ];
