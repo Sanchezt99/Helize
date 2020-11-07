@@ -47,3 +47,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::redirect('/index', '/');
 Route::redirect('/home', '/');
 
+//Lang routes
+Route::get('/lang/{locale}','LanguageController@changeLang')->name("/");
