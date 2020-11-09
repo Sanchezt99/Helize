@@ -12,7 +12,6 @@ class LanguageController extends Controller {
     }
     public function changeLang($locale){
         Session::put('applocale', $locale);
-        return redirect()->route("admin.home.index");
-        //return view("home.index");
+        return view("home.index");
     }
 }
