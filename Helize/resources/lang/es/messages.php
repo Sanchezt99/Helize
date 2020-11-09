@@ -59,4 +59,7 @@ return [
     'addProducts' => 'Adicionar productos',
     'logout' => 'salir',
     'addToCart' => 'Adicionar al carrito',
+    'shirts' => 'Shirts',
+    'jeans' => 'Jeans',
+    'shoes' => 'Shoes',
 ];

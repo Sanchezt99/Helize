@@ -10,13 +10,13 @@
             <h3 class="display-3"> {{ trans('messages.products') }} </h3>
         <div class="col-md-12 text-center mb-3">
             <ul id="select-category">
-                <li  {{ ($data['selected'] == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p>All</p> </a></li>
-                <li  {{ ($data['selected'] == 'Shirt') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shirt', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-tshirt"></i> Shirts </p> </li></a>
-                <li  {{ ($data['selected'] == 'Jean') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Jean', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-socks"></i> Jeans </p> </a></li>
-                <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> Shoes </p> </a></li>
+                <li  {{ ($data['selected'] == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p> {{ trans('messages.all') }} </p> </a></li>
+                <li  {{ ($data['selected'] == 'Shirt') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shirt', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-tshirt"></i>  {{ trans('messages.shirts') }}  </p> </li></a>
+                <li  {{ ($data['selected'] == 'Jean') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Jean', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-socks"></i>  {{ trans('messages.jeans') }}  </p> </a></li>
+                <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> shoes </p> </a></li>
             </ul>
         </div>
-            <h3 class="display-3">Products</h3>
+            <h3 class="display-3"> {{ trans('messages.product') }} </h3>
                     <div class="dropdown show">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Items per page: {{$data['ItemsPerPage']}}
