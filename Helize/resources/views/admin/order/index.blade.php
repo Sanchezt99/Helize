@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1 class="display-3">Ordenes</h1>
+            <h1 class="display-3"> {{ trans('messages.order') }} </h1>
             <div class="container">
                 @isset($data)
 
@@ -12,8 +12,8 @@
 
                     <thead>
                         <tr>
-                            <td>Usuario</td>
-                            <td>Total</td>
+                            <td> {{ trans('messages.user') }} </td>
+                            <td> {{ trans('messages.total') }} </td>
                         </tr>
                     </thead>
                     <tbody>

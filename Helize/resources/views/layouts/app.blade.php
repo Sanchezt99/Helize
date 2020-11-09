@@ -43,18 +43,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        
+
                         <li class="nav-item">
-                            <a href={{ route('cart.index') }} class="nav-link"><strong>Cart</strong></a>
+                            <a href={{ route('cart.index') }} class="nav-link"><strong> {{ trans('messages.cart') }} </strong></a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"> {{ trans('messages.login') }} </a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}"> {{ trans('messages.register') }} </a>
                         </li>
                         @endif
                         @else
@@ -67,11 +67,11 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ trans('messages.logout') }}
                                 </a>
 
                                 @if (Auth::user()->getRole() == 'Admin' )
-                                    <a href={{ route('wear.create') }} class="dropdown-item">Add products</a>
+                                    <a href={{ route('wear.create') }} class="dropdown-item"> {{ trans('messages.addProducts') }} </a>
                                 @endif
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

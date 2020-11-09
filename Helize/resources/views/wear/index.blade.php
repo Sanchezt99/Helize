@@ -6,6 +6,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
+
+            <h3 class="display-3"> {{ trans('messages.products') }} </h3>
         <div class="col-md-12 text-center mb-3">
             <ul id="select-category">
                 <li  {{ ($data['selected'] == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p>All</p> </a></li>
@@ -30,10 +32,10 @@
                 <table class="table table-hover cinereousTable">
                     <thead>
                         <tr>
-                            <th>gender</th>
-                            <th>Wear</th>
-                            <th>brand</th>
-                            <th>price</th>
+                            <th> {{ trans('messages.gender') }} </th>
+                            <th> {{ trans('messages.wear') }} </th>
+                            <th> {{ trans('messages.brand') }} </th>
+                            <th> {{ trans('messages.price') }} </th>
                             <th><i class="fas fa-cart-plus"></i></th>
                         </tr>
                     </thead>
@@ -47,7 +49,7 @@
                             <td>
                                 <form action={{ route('cart.add',$wear->getId()) }} method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                                    <button type="submit" class="btn btn-primary"> {{ trans('messages.addToCart') }} </button>
                                 </form>
                             </td>
                         </tr>
