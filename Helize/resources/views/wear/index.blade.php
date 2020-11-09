@@ -8,10 +8,10 @@
         <div class="col-sm-12">
         <div class="col-md-12 text-center mb-3">
             <ul id="select-category">
-                <li  {{ (request()->query() == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p>All</p> </a></li>
-                <li  {{ (request()->query("category")== 'Shirt') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shirt', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-tshirt"></i> Shirts </p> </li></a>
-                <li  {{ (request()->query("category")== 'Jean') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Jean', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-socks"></i> Jeans </p> </a></li>
-                <li  {{ (request()->query("category")== 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> Shoes </p> </a></li>
+                <li  {{ ($data['selected'] == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p>All</p> </a></li>
+                <li  {{ ($data['selected'] == 'Shirt') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shirt', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-tshirt"></i> Shirts </p> </li></a>
+                <li  {{ ($data['selected'] == 'Jean') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Jean', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-socks"></i> Jeans </p> </a></li>
+                <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> Shoes </p> </a></li>
             </ul>
         </div>
             <h3 class="display-3">Products</h3>

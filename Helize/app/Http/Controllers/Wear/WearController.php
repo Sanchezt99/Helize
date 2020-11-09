@@ -28,6 +28,9 @@ class WearController extends Controller{
         $data['wears'] = $wears;
         $data['type'] = $request->category;
 
+        $data['selected'] = $request->query("category");
+        
+
         return view('wear.index')->with("data", $data);
     }
 
