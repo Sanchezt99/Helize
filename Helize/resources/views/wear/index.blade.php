@@ -58,7 +58,6 @@
                 </table>
                 {{$data["wears"]->appends(['ItemsPerPage' => $data['ItemsPerPage']])->appends(['category' => $data["type"]]) ->links()}}
             </div>
-            <a href="/exportar" class="btn btn-success"> {{ trans('messages.export') }} </a>
         </div>
     </div>
 </div>

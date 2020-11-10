@@ -7,7 +7,6 @@
             <h1 class="display-3"> {{ trans('messages.wear') }} </h1>
             <div class="container">
                 <table class="table table-striped">
-
                     <thead>
                         <tr>
                             <td> {{ trans('messages.id') }} </td>
@@ -29,26 +28,32 @@
                             <td>{{$wear->getType()}}</td>
                             <td>{{$wear->getBrand()}}</td>
                             <td>
-                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary"> {{ trans('messages.edit') }} </a>
+                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary">
+                                    {{ trans('messages.edit') }} </a>
                             </td>
                             <td>
                                 <form action="{{ route('wear.destroy', $wear->getId())}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit"> {{ trans('messages.delete') }} </button>
+                                    <button class="btn btn-danger" type="submit"> {{ trans('messages.delete') }}
+                                    </button>
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-        @endforeach
-        </tbody>
-        </table>
     </div>
     <div class="col-sm-6">
         <form method="get" action="{{ route('wear.create') }}">
             <button type="submit" class="btn btn-dark "> {{ trans('messages.newProduct') }} </button>
         </form>
+    </div>
+    <br>
+    <div class="col-sm-6">
+        <a href={{ route('export') }} class="btn btn-success"> {{ trans('messages.export') }} </a>
     </div>
 </div>
 @endsection

@@ -66,7 +66,7 @@ class OrderController extends Controller
             return view('cart.index')->with("data",$data);
         }
 
-        return redirect()->route('home.index');
+        return redirect()->route('home');
     }
 
     public function buy(Request $request)

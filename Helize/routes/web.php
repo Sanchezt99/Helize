@@ -55,4 +55,4 @@ Route::get('login/google/callback', 'Auth\GoogleAuthController@googleCallback')-
 //Lang routes
 Route::get('/lang/{locale}','LanguageController@changeLang')->name("/");
 
-Route::get('/exportar', 'ExportController@export');
+Route::get('/export', 'ExportController@export')->name('export');

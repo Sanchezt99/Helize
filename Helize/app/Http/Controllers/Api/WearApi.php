@@ -25,8 +25,8 @@ class WearApi extends Controller
      * @param  \App\Wear  $wear
      * @return \Illuminate\Http\Response
      */
-    public function show(Wear $wearID)
+    public function show($wearID)
     {
-        return new WearCollection(WearResource::collection(Wear::findOrFail($wearID)));
+        return new WearResource(Wear::findOrFail($wearID));
     }
 }

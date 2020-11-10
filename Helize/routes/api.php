@@ -20,4 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/wears', [WearApi::class, 'index'])->name("api.wear.index");
-Route::get('/wears/{id}', [WearApi::class, 'show'])->name("api.wear.show");
+Route::get('/wears/{wearID}', [WearApi::class, 'show'])->name("api.wear.show");
