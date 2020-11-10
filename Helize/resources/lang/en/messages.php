@@ -64,6 +64,8 @@ return [
     'shoes' => 'Shoes',
     'all' => 'All',
     'export' => 'Export',
+    'ProductDescription' => 'Product Description',
+    'showMoreProducts' => 'Show more products'
 
 ];
 
