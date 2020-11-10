@@ -64,8 +64,11 @@
                                 @endif
                             </div>
                         </div>
-                        <a href="{{ route('google.login') }}" class="btn btn-primary">Login With Google</a>
                     </form>
+                    <br>
+                    <div class="text-center">
+                        <a href="{{ route('google.login') }}" class="btn btn-primary">Login With Google</a>
+                    </div>
                 </div>
             </div>
         </div>
