@@ -64,6 +64,8 @@ return [
     'jeans' => 'Pantalones',
     'shoes' => 'Zapatos',
     'all' => 'Todo',
+    'ProductDescription' => 'Descipcion del producto',
+    'showMoreProducts' => 'Mostrar mas productos',
 
 
 ];
