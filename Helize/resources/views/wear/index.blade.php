@@ -16,7 +16,7 @@
                 <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> {{ trans('messages.shoes') }} </p> </a></li>
             </ul>
         </div>
-            <h3 class="display-3"> {{ trans('messages.product') }} </h3>
+            <h3 class="display-3"> {{ trans('messages.products') }} </h3>
                     <div class="dropdown show">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Items per page: {{$data['ItemsPerPage']}}
@@ -49,7 +49,7 @@
                             <td>
                                 <form action={{ route('cart.add',$wear->getId()) }} method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary"> {{ trans('messages.addToCart') }} </button>
+                                    <button type="submit" class="btn btn-primary"> {{ trans('messages.addToCart') }}  </button>
                                 </form>
                             </td>
                         </tr>
@@ -58,7 +58,10 @@
                 </table>
                 {{$data["wears"]->appends(['ItemsPerPage' => $data['ItemsPerPage']])->appends(['category' => $data["type"]]) ->links()}}
             </div>
+            <a href="/exportar" class="btn btn-success"> {{ trans('messages.export') }} </a>
         </div>
     </div>
 </div>
 @endsection
+
+

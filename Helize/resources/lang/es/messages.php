@@ -59,7 +59,11 @@ return [
     'addProducts' => 'Adicionar productos',
     'logout' => 'salir',
     'addToCart' => 'Adicionar al carrito',
-    'shirts' => 'Shirts',
-    'jeans' => 'Jeans',
-    'shoes' => 'Shoes',
+    'export' => 'Exportar',
+    'shirts' => 'Camisas',
+    'jeans' => 'Pantalones',
+    'shoes' => 'Zapatos',
+    'all' => 'Todo',
+
+
 ];
