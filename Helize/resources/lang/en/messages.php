@@ -59,5 +59,8 @@ return [
     'addProducts' => 'Add products',
     'logout' => 'Logout',
     'addToCart' => 'Add to cart',
+    'shirts' => 'Camisas',
+    'jeans' => 'Pantalones',
+    'shoes' => 'Zapatos',
 ];
 
