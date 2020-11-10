@@ -64,10 +64,12 @@
                                 @endif
                             </div>
                         </div>
+                        <a href="{{ route('google.login') }}" class="btn btn-primary">Login With Google</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </div>
 @endsection

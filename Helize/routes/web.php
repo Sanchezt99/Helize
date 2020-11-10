@@ -41,9 +41,12 @@ Route::get('/cart', 'OrderController@cart')->name('cart.index');
 Route::post('/cart/remove/{id}', 'OrderController@removeOneCart')->name('cart.removeOne');
 Route::post('/cart/buy', 'OrderController@buy')->name('cart.buy');
 
-Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::redirect('/index', '/');
 Route::redirect('/home', '/');
 
+Auth::routes();
+
+Route::get('login/google', 'Auth\GoogleAuthController@googleRedirect')->name('google.login');
+Route::get('login/google/callback', 'Auth\GoogleAuthController@googleCallback')->name('google.callback');
