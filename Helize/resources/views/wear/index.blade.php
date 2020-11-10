@@ -13,7 +13,7 @@
                 <li  {{ ($data['selected'] == null) ? 'class=active' : '' }}><a  href="{{route('wear.index')}}"><p> {{ trans('messages.all') }} </p> </a></li>
                 <li  {{ ($data['selected'] == 'Shirt') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shirt', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-tshirt"></i>  {{ trans('messages.shirts') }}  </p> </li></a>
                 <li  {{ ($data['selected'] == 'Jean') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Jean', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-socks"></i>  {{ trans('messages.jeans') }}  </p> </a></li>
-                <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> shoes </p> </a></li>
+                <li  {{ ($data['selected'] == 'Shoes') ? 'class=active' : '' }}><a  href="{{route('wear.index',['category' =>  'Shoes', 'ItemsPerPage' => $data['ItemsPerPage']])}}"><p><i class="fas fa-shoe-prints"></i> {{ trans('messages.shoes') }} </p> </a></li>
             </ul>
         </div>
             <h3 class="display-3"> {{ trans('messages.product') }} </h3>
