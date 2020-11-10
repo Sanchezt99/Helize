@@ -83,6 +83,10 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <div class="text-center">
+                        <a href="{{ route('google.login') }}" class="btn btn-primary">Register With Google</a>
+                    </div>
                 </div>
             </div>
         </div>
