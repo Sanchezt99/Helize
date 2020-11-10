@@ -35,6 +35,7 @@
                 </table>
             </div>
         </div>
+        <a href="/exportar" class="btn btn-success">Exportar</a>
     </div>
 </div>
 @endsection

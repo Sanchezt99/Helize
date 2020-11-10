@@ -49,3 +49,7 @@ Route::redirect('/home', '/');
 
 //Lang routes
 Route::get('/lang/{locale}','LanguageController@changeLang')->name("/");
+
+//Excel route
+Route::get('/exportar', 'ExcelController@export');
+
