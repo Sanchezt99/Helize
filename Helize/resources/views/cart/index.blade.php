@@ -4,16 +4,16 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h3 class="display-3">Products</h3>
+            <h3 class="display-3"> {{ trans('messages.products') }} </h3>
             <div class="container text-center">
                 @isset($data)
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>gender</th>
-                            <th>Wear</th>
-                            <th>brand</th>
-                            <th>price</th>
+                            <th> {{ trans('messages.gender') }} </th>
+                            <th> {{ trans('messages.wear') }} </th>
+                            <th> {{ trans('messages.brand') }} </th>
+                            <th> {{ trans('messages.price') }} </th>
                             <th><i class="fas fa-cart-plus"></i></th>
                         </tr>
                     </thead>
@@ -27,18 +27,18 @@
                             <td>
                                 <form action={{ route('cart.removeOne',$wear->getId()) }} method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                    <button type="submit" class="btn btn-danger"> {{ trans('messages.remove') }} </button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
                         <tr>
-                            <td colspan="2">Total:</td>
+                            <td colspan="2"> {{ trans('messages.total') }} :</td>
                             <td colspan="2"><strong>{{ $data['total'] }}$</strong></td>
                             <td colspan="2">
                                 <form action={{ route('cart.buy') }} method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-success">Comprar</button>
+                                    <button type="submit" class="btn btn-success"> {{ trans('messages.buy') }} </button>
                                 </form>
                             </td>
                         </tr>

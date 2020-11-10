@@ -16,14 +16,11 @@
                 <div class="card-body">
 
                     <ul>
-                        <li>Color: <strong>{{ $wear->getColor() }}</strong></li>
-                        <li>Gender: <strong>{{ $wear->getGender() }}</strong></li>
-                        <li>Wear: <strong>{{ $wear->getType() }}</strong></li>
+                        <li> {{ trans('messages.color') }} : <strong>{{ $wear->getColor() }}</strong></li>
+                        <li> {{ trans('messages.gender') }} : <strong>{{ $wear->getGender() }}</strong></li>
+                        <li> {{ trans('messages.wear') }} : <strong>{{ $wear->getType() }}</strong></li>
                     </ul>
                     <a href={{ route('wear.show', ['id' => $wear->getId()]) }} class="stretched-link"></a>
-
-
-
                 </div>
             </div>
             @endforeach
@@ -32,7 +29,7 @@
     @endisset
     <div class="row justify-content-center">
         <div class="col-md-12 text-center">
-            <a href={{ route('wear.index') }} class="btn btn-success">Show all products</a>
+            <a href={{ route('wear.index') }} class="btn btn-success"> {{ trans('messages.showAllProducts') }} </a>
         </div>
     </div>
 </div>

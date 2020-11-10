@@ -4,19 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1 class="display-3">Wears</h1>
+            <h1 class="display-3"> {{ trans('messages.wear') }} </h1>
             <div class="container">
                 <table class="table table-striped">
 
                     <thead>
                         <tr>
-                            <td>Id</td>
-                            <td>genero</td>
-                            <td>color</td>
-                            <td>categoria</td>
-                            <td>tipo</td>
-                            <td>marca</td>
-                            <td colspan=2>acciones</td>
+                            <td> {{ trans('messages.id') }} </td>
+                            <td> {{ trans('messages.gender') }} </td>
+                            <td> {{ trans('messages.color') }} </td>
+                            <td> {{ trans('messages.category') }} </td>
+                            <td> {{ trans('messages.type') }} </td>
+                            <td> {{ trans('messages.brand') }} </td>
+                            <td colspan=2> {{ trans('messages.actions') }} </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,13 +29,13 @@
                             <td>{{$wear->getType()}}</td>
                             <td>{{$wear->getBrand()}}</td>
                             <td>
-                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary">Editar</a>
+                                <a href="{{ route('wear.edit',$wear->getId())}}" class="btn btn-primary"> {{ trans('messages.edit') }} </a>
                             </td>
                             <td>
                                 <form action="{{ route('wear.destroy', $wear->getId())}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Borrar</button>
+                                    <button class="btn btn-danger" type="submit"> {{ trans('messages.delete') }} </button>
                                 </form>
                             </td>
                         </tr>
@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm-6">
         <form method="get" action="{{ route('wear.create') }}">
-            <button type="submit" class="btn btn-dark ">Nuevo producto</button>
+            <button type="submit" class="btn btn-dark "> {{ trans('messages.newProduct') }} </button>
         </form>
     </div>
 </div>

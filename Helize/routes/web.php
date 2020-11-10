@@ -46,7 +46,12 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::redirect('/index', '/');
 Route::redirect('/home', '/');
 
+
 Auth::routes();
 
 Route::get('login/google', 'Auth\GoogleAuthController@googleRedirect')->name('google.login');
 Route::get('login/google/callback', 'Auth\GoogleAuthController@googleCallback')->name('google.callback');
+
+//Lang routes
+Route::get('/lang/{locale}','LanguageController@changeLang')->name("/");
+
