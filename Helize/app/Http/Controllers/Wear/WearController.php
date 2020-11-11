@@ -8,28 +8,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 
-class WearController extends Controller{
+class WearController extends Controller
+{
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $data = [];
-       
-        if($request->ItemsPerPage != null){
-            $data['ItemsPerPage']=$request->ItemsPerPage;
-        }else{
-            $data['ItemsPerPage']=10;
+
+        if ($request->ItemsPerPage != null) {
+            $data['ItemsPerPage'] = $request->ItemsPerPage;
+        } else {
+            $data['ItemsPerPage'] = 10;
         }
-        
-        if($request->category != ''){
-            $wears = Wear::where('type',$request->category)->paginate($data['ItemsPerPage']);
-        }else{
-          $wears = Wear::orderBy('created_at','desc')->paginate($data['ItemsPerPage']); 
+
+        if ($request->category != '') {
+            $wears = Wear::where('type', $request->category)->paginate($data['ItemsPerPage']);
+        } else {
+            $wears = Wear::orderBy('created_at', 'desc')->paginate($data['ItemsPerPage']);
         }
-        
+
         $data['wears'] = $wears;
         $data['type'] = $request->category;
 
         $data['selected'] = $request->query("category");
-        
+
 
         return view('wear.index')->with("data", $data);
     }
@@ -38,7 +40,6 @@ class WearController extends Controller{
     {
         $wear = Wear::findOrFail($id);
 
-        dd($id);
-        //return view('wear.show')->with("wear", $wear);
+        return view('wear.show')->with("wear", $wear);
     }
 }

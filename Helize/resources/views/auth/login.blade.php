@@ -65,9 +65,14 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <div class="text-center">
+                        <a href="{{ route('google.login') }}" class="btn btn-primary">Login With Google</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </div>
 @endsection
